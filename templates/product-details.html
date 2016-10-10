@@ -1,0 +1,34 @@
+<div class="product-detail-title"> <a href="/Jadopado/#/"><span class="backto-productlist"></span></a><p>Product Details</p></div>
+<div class="product-detail-content">
+    <h1>{{product.name}}</h1>
+    <div class="product-detail-section">
+          <div class="product-detail-section1">
+            <div class="offsetspan6 prouct-slider-main">
+                         <carousel interval="myInterval">
+                              <slide ng-repeat="slide in product.images" active="slide.active">
+                                    <img class="image-circle" ng-src="{{slide.image}}" style="margin:auto;"/>
+                           </slide>
+                    </carousel>
+            <span class="product-away">{{product.maxAway}}m away</span>
+            <span class="product-name">{{product.name}}</span>
+            <span class="product-price">AED {{product.price}}</span>
+            </div>
+            <span class="product-desc">{{product.desc}}</span>
+        </div>
+    
+         <div id='dv1' class="customer-comment-section">
+            <form ng-controller="FrmController">
+                <form ng-controller="FrmController">
+                    <div class="customer-comment-div">
+                    <textarea ng-model="txtcomment" placeholder="Write Comment"></textarea>
+                    <button ng-click='btn_add();'>Post</button>
+                    </div>
+                    <h4>Comments</h4>
+                    <ul>
+                        <li>Nice Product</li>
+                        <li ng-repeat="comnt in comment"> {{ comnt }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a></li>
+                    </ul>
+                </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="product-list-title">
+    <h1>Jadopado</h1>
+    <span>Shopping Market</span>
+</div>
+<div class="search-section">
+    <input class="product-search" type="text" placeholder="What are you looking for?" ng-model="searchText.name"/>
+</div>
+<div class="product-slide-search">
+<span>Search With XXXkm</span>
+<slider floor="0" ceiling="500" ng-model-low="lower_price_bound" ng-model-high="upper_price_bound"></slider>
+    Min-km: <strong>{{lower_price_bound}}km</strong>
+    &nbsp;
+    Max-km: <strong>{{upper_price_bound}}km</strong>
+</div>
+<ul class="product-list-section">
+    <li ng-repeat="product in products | filter:priceRange | filter:searchText" class="product-list">
+    <a href="#/{{product.name}}">
+    <img lazy-img="{{product.images[0].image}}">
+     <span class="product-away">{{product.maxAway}}m away</span>
+    <span class="product-name">{{product.name}}</span>
+    <span class="product-price">AED {{product.price}}</span>
+    </a>
+</ul>
