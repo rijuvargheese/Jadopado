@@ -1,27 +1,36 @@
 <div class="product-detail-title"> <a href="/Jadopado/#/"><span class="backto-productlist"></span></a><p>Product Details</p></div>
 <div class="product-detail-content">
-    <h1>{{product.name}}</h1>
     <div class="product-detail-section">
           <div class="product-detail-section1">
-            <div class="offsetspan6 prouct-slider-main">
-                         <carousel interval="myInterval">
-                              <slide ng-repeat="slide in product.images" active="slide.active">
-                                    <img class="image-circle" ng-src="{{slide.image}}" style="margin:auto;"/>
-                           </slide>
-                    </carousel>
-            <span class="product-away">{{product.maxAway}}m away</span>
+              <div class="product-detail-section-label">
+                    <div class="product-label-section"><span class="product-label-icon"></span><span class="product-label">{{product.label}}</span></div>
+                    <span class="product-away">{{product.maxAway}}m away</span>
+              </div>
+            <div class="container slider">
+                <img ng-repeat="slide in product.images" class="slide slide-animation nonDraggableImage"
+                    ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+                    ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+
+                <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
+                <a class="arrow next" href="#" ng-click="prevSlide()"></a>
+                
             <span class="product-name">{{product.name}}</span>
             <span class="product-price">AED {{product.price}}</span>
+            <span class="product-share-icon"></span>
+             <span class="product-like-icon"></span>
             </div>
+
+            <div class="product-out-section">
+            <div class="product-review-section"><span class="product-review-icon"></span><span class="product-review">32 likes</span></div>
             <span class="product-desc">{{product.desc}}</span>
+            </div>
         </div>
-    
          <div id='dv1' class="customer-comment-section">
             <form ng-controller="FrmController">
                 <form ng-controller="FrmController">
                     <div class="customer-comment-div">
                     <textarea ng-model="txtcomment" placeholder="Write Comment"></textarea>
-                    <button ng-click='btn_add();'>Post</button>
+                    <button ng-click='btn_add();'><span class="send-icon"></span></button>
                     </div>
                     <h4>Comments</h4>
                     <ul>
